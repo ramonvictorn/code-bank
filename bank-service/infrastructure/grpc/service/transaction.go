@@ -13,6 +13,7 @@ import (
 
 type TransactionService struct {
 	ProcessTransactionUseCase usecase.UseCaseTransaction
+	pb.UnimplementedPaymentServiceServer
 }
 
 func NewTransactionService() *TransactionService {

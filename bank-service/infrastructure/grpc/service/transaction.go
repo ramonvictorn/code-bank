@@ -1,8 +1,14 @@
 package service
 
 import (
-	"github.com/ramonvictorn/code-bank/pb"
+	"context"
+
+	"github.com/golang/protobuf/ptypes/empty"
+	"github.com/ramonvictorn/code-bank/dto"
+	"github.com/ramonvictorn/code-bank/infrastructure/grpc/pb"
 	"github.com/ramonvictorn/code-bank/usecase"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 )
 
 type TransactionService struct {

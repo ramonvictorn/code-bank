@@ -1,15 +1,17 @@
 package usecase
 
 import (
+	"encoding/json"
 	"time"
 
 	"github.com/ramonvictorn/code-bank/domain"
 	"github.com/ramonvictorn/code-bank/dto"
+	"github.com/ramonvictorn/code-bank/infrastructure/kafka"
 )
 
 type UseCaseTransaction struct {
 	TransactionRepository domain.TransactionRepository
-	KafkaProducer         kafka.Producer
+	KafkaProducer         kafka.KafkaProducer
 }
 
 func NewUseCaseTransaction(transactionRepository domain.TransactionRepository) UseCaseTransaction {

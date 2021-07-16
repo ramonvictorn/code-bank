@@ -8,6 +8,7 @@ services:
       - "50052:50051"
     volumes:
       - .:/go/src/
+      - /home/ramon/go/pkg:/go/pkg/
     extra_hosts:
       - "host.docker.internal:172.17.0.1"
 

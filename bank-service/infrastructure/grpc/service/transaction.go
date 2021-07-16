@@ -12,11 +12,11 @@ import (
 )
 
 type TransactionService struct {
-	ProcessTransactionUserCase usecase.UseCaseTransaction
+	ProcessTransactionUseCase usecase.UseCaseTransaction
 }
 
 func NewTransactionService() *TransactionService {
-	return &TransactionService
+	return &TransactionService{}
 }
 
 func (t *TransactionService) Payment(ctx context.Context, in *pb.PaymentRequest) (*empty.Empty, error) {

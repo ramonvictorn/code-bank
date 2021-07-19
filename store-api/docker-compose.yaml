@@ -1,0 +1,32 @@
+version: '3'
+
+services: 
+    store-api:
+        build: .
+        entrypoint: .docker/entrypoint.sh
+        container_name: store-api
+        ports: 
+            - 3000:3000
+        volumes: 
+            - .:/home/node/app
+        depends_on: 
+            - store-db
+    store-db:
+        container_name: store_db
+        build: .docker/postgres
+        restart: always
+        tty: true
+        volumes: 
+            - ./.docker/dbdata:/var/lib/postgresql/data
+        environment: 
+            - POSTGRES_PASSWORD=root
+            - POSTGRES_DB=store
+    pgadmin:
+        image: dpage/pgadmin4
+        container_name: store-api-pgadmin
+        tty: true
+        environment:
+            - PGADMIN_DEFAULT_EMAIL=postgres@postgres.com
+            - PGADMIN_DEFAULT_PASSWORD=123456
+        ports:
+            - 9000:80
